@@ -1,0 +1,18 @@
+﻿@page "{id:int}"
+@model BD9.Pages.Models.EditModel
+
+<h2>Редактирование пользователя</h2>
+
+<form method="post">
+    <input name="id" value="@Model.Mod?.id" type="hidden" />
+    <p>
+        <label>Производитель</label><br />
+        <input name="manufact" value="@Model.Mod?.Manufacture"/>
+    </p>
+    <p>
+        <label>Название модели</label><br />
+        <input name="name" value="@Model.Mod?.Model_name" />
+    </p>
+    <input type="submit" value="Сохранить" />
+</form>
+
