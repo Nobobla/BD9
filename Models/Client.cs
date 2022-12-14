@@ -9,5 +9,7 @@
         public string? Sex { get; set; }
         public string? Email { get; set; }
         public int? Phone { get; set; }
+
+        public List<Client> Clients { get; set; } = new();
     }
 }

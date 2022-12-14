@@ -1,6 +1,7 @@
 using BD9.Models;
 using Microsoft.EntityFrameworkCore;   // пространство имен класса ApplicationContext
 
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);//для DateTime
 var builder = WebApplication.CreateBuilder(args);
 
 // получаем строку подключения из файла конфигурации

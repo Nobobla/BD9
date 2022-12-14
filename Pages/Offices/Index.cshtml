@@ -1,0 +1,17 @@
+﻿@page
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@model BD9.Pages.Offices.IndexModel
+
+<h2>Список Офисов</h2>
+<table>
+    <tr><th>Адрес</th><th>Электронная почта</th><th>Телефон</th></tr>
+    @foreach (var user in Model.Offices)
+    {
+            <tr>
+                <td>@user.Adress</td>
+                <td>@user.Email</td>
+                <td>@user.Phone</td>
+            </tr>
+    }
+</table>
