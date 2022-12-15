@@ -25,7 +25,7 @@ using (var scope = app.Services.CreateScope())
     var db = serviceProvider.GetRequiredService<ApplicationContext>();
     await db.Database.EnsureDeletedAsync();
     await db.Database.EnsureCreatedAsync();
-
+    await ApplicationContextSeed.InitializeDb(db);
 
 }
 app.Run();

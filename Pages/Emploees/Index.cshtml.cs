@@ -17,6 +17,24 @@ namespace BD9.Pages.Emploees
         {
             Emps = context.Emps.AsNoTracking().ToList();
         }
+        //public async Task<IActionResult> OnGetAsync(int? id)
+        //{
+        //    if (id == null)
+        //        return NotFound();
+
+        //    Emps = await context.Emps
+        //        .Include(c => c.ContactInform)
+        //        .FirstOrDefaultAsync(m => m.id == id);
+
+        //    if (Rent == null)
+        //        return NotFound();
+
+        //    ItemDropDownList(_db, Rent.ItemId);
+        //    CustomerDropDownList(_db, Rent.CustomerId);
+
+        //    return Page();
+        //}
+
         public async Task<IActionResult> OnPostDeleteAsync(int id)
         {
             var user = await context.Emps.FindAsync(id);

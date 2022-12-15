@@ -3,9 +3,8 @@
     public class Emploee
     {
         public int id { get; set; }
-        //public int? Id { get; set; }//внешний ключ для контактных данных
-        //public Model? Model { get; set; }
-        public ContactInform? ContactInform { get; set; }//1 к 1 с контактной информацией
+        public int? ContactId { get; set; }
+        public ContactInform? ContactInform { get; set; }
         public int? JobId { get; set; }//внешний ключ для работы
         public Job? Job { get; set; }
 
