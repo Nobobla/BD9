@@ -26,6 +26,6 @@ using (var scope = app.Services.CreateScope())
     await db.Database.EnsureDeletedAsync();
     await db.Database.EnsureCreatedAsync();
     await ApplicationContextSeed.InitializeDb(db);
-
+    // test
 }
 app.Run();
