@@ -16,7 +16,7 @@ namespace BD9.Pages.Models
             }
             public async Task<IActionResult> OnPostAsync()
             {
-                context.Models.Add(Mod);
+                //context.Models.Add(Mod);
                 await context.SaveChangesAsync();
                 return RedirectToPage("Index");
             }

@@ -1,10 +1,13 @@
 ﻿using BD9.Models;
+using System.Security.Cryptography;
+
 namespace BD9.Models
 {
     public class ApplicationContextSeed
     {
         public static async Task InitializeDb(ApplicationContext db)
         {
+            return;
             if (db.Orders.Any())
                 return;
 
@@ -13,7 +16,7 @@ namespace BD9.Models
             var model3 = new Model() { Manufacture = "Apple", Model_name = "14pro" };
             var model4 = new Model() { Manufacture = "Apple", Model_name = "14pro max" };
             var model5 = new Model() { Manufacture = "Huawei", Model_name = "Mate 40" };
-            await db.Models.AddRangeAsync(model1,model2,model3,model4,model5);
+            //await db.Models.AddRangeAsync(model1,model2,model3,model4,model5);
 
 
             var cl1 = new Client() { Surname = "Швед", Name = "Александр", Lastname = "Сергеевич", Sex = "М",Email = "1@mail.ru", Phone = 81234567890 };
@@ -45,13 +48,21 @@ namespace BD9.Models
             var Ep3 = new Emploee() {ContactInform = CI3 ,Job = j2 , Office = of1 };
             await db.Emps.AddRangeAsync(Ep1,Ep2,Ep3);
 
-            var s1 = new Servise() { ServiseName = "Замена экрана",Model =  model1,Price=1000 };
-            var s2 = new Servise() { ServiseName = "Замена батареи", Model = model2, Price = 1000 };
-            var s3 = new Servise() {ServiseName = "Замена материнской платы",Model = model3,Price = 2000  };
-            var s4 = new Servise() { ServiseName = "Замена камеры", Model = model4, Price = 3000 };
-            await db.Servises.AddRangeAsync(s1, s2, s3, s4);
+            var s1 = new Servise() { ServiseName = "Замена экрана", Price = 1000 };
+            var s2 = new Servise() { ServiseName = "Замена батареи", Price = 1000 };
+            var s3 = new Servise() { ServiseName = "Замена материнской платы",  Price = 2000 };
+            var s4 = new Servise() { ServiseName = "Замена камеры",  Price = 3000 };
+            //await db.Servises.AddRangeAsync(s1, s2, s3, s4);
 
-            var o1 = new Order() {Serv= s1,Warraty= "Нет",Emp= Ep1,Client= cl1,AcceptOrd = new DateTime(2022,12,03),Description="Не работает экран, внешнее состояние без нареканий"/*, DateIssue = new DateTime(2022, 12, 04)*/ };
+            var ms1 = new ServiceModel() {model = model1, Servise = s1,Note = "Не работает!", Discription = "23525364" };
+            var ms2 = new ServiceModel() { model = model2, Servise = s2, Note = "Не работает опять!", Discription = "234" };
+            var ms3 = new ServiceModel() { model = model3, Servise = s3, Note = "демн!", Discription = "2352534" };
+            var ms4 = new ServiceModel() { model = model4, Servise = s4, Note = "ХачуПури", Discription = "2325364" };
+            //await db.ServiceModels.AddRangeAsync(ms1, ms2, ms3, ms4);
+
+            
+
+            var o1 = new Order() {Serv= s1,Warraty= "Нет",Emp= Ep1,Client= cl1,AcceptOrd = new DateTime(2022,12,03),Description="Не работает экран, внешнее состояние без нареканий"/*, DateIssue = new DateTime(2022, 12, 04)*/, };
             var o2 = new Order() { Serv = s2, Warraty = "Нет", Emp = Ep3, Client = cl2, AcceptOrd = new DateTime(2022, 12, 02), Description = "Не работает аккумулятор, внешнее состояние без нареканий" /*, DateIssue = new DateTime(2022, 12, 04)*/ };
             var o3 = new Order() { Serv = s3, Warraty = "Нет", Emp = Ep3, Client = cl3, AcceptOrd = new DateTime(2022, 12, 01), Description = "Не работает материнская плата, внешнее состояние без нареканий",DateIssue = new DateTime(2022,12,04) };
             var o4 = new Order() { Serv = s4, Warraty = "Да", Emp = Ep1, Client = cl4, AcceptOrd = new DateTime(2022, 12, 03), Description = "Не работает камера, внешнее состояние без нареканий", DateIssue = new DateTime(2022, 12, 07) };

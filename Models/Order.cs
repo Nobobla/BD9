@@ -17,5 +17,7 @@
         public DateTime? AcceptOrd { get; set; }
         public string? Description { get; set; }
         public DateTime? DateIssue { get; set; }
+        public int? ComplaintId { get; set; }
+        public Complaint Complaints { get; set; }
     }
 }

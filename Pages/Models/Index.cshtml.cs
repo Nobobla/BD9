@@ -15,17 +15,17 @@ namespace BD9.Pages.Models
         }
         public void OnGet()
         {
-            Models = context.Models.AsNoTracking().ToList();
+            //Models = context.Models.AsNoTracking().ToList();
         }
         public async Task<IActionResult> OnPostDeleteAsync(int id)
         {
-            var user = await context.Models.FindAsync(id);
+            //var user = await context.Models.FindAsync(id);
 
-            if (user != null)
-            {
-                context.Models.Remove(user);
-                await context.SaveChangesAsync();
-            }
+            //if (user != null)
+            //{
+            //    context.Models.Remove(user);
+            //    await context.SaveChangesAsync();
+            //}
 
             return RedirectToPage();
         }

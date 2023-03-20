@@ -5,7 +5,7 @@
         public int id { get; set; }
         public string? Manufacture { get; set; }
         public string? Model_name { get; set; }
-        public List<Servise> Servises { get; set; } = new();
-        
+        public List<ServiceModel> serviceModels { get; set; } = new();
+
     }
 }

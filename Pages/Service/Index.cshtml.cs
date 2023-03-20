@@ -15,17 +15,17 @@ namespace BD9.Pages.Service
         }
         public void OnGet()
         {
-            Servises = context.Servises.AsNoTracking().ToList();
+            //Servises = context.Servises.AsNoTracking().ToList();
         }
         public async Task<IActionResult> OnPostDeleteAsync(int id)
         {
-            var user = await context.Servises.FindAsync(id);
+            //var user = await context.Servises.FindAsync(id);
 
-            if (user != null)
-            {
-                context.Servises.Remove(user);
-                await context.SaveChangesAsync();
-            }
+            //if (user != null)
+            //{
+            //    //context.Servises.Remove(user);
+            //    await context.SaveChangesAsync();
+            //}
 
             return RedirectToPage();
         }

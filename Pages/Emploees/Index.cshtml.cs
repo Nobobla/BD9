@@ -7,45 +7,49 @@ namespace BD9.Pages.Emploees
 {
     public class IndexModel : PageModel
     {
-        ApplicationContext context;
-        public List<Emploee> Emps { get; private set; } = new();
-        public IndexModel(ApplicationContext db)
-        {
-            context = db;
-        }
-        public void OnGet()
-        {
-            Emps = context.Emps.AsNoTracking().ToList();
-        }
-        //public async Task<IActionResult> OnGetAsync(int? id)
-        //{
-        //    if (id == null)
-        //        return NotFound();
+    //    ApplicationContext context;
+    //    public List<Emploee> Emps { get; private set; } = new();
+    //    public IndexModel(ApplicationContext db)
+    //    {
+    //        context = db;
+    //    }
+    //    public void OnGet()
+    //    {
+    //        Emps = context.Emps
+    //            .Include(x => x.Office)
+    //            .Include(x => x.Job)
+    //            .Include(x => x.ContactInform)
+    //            .ToList();
+    //    }
+    //    //public async Task<IActionResult> OnGetAsync(int? id)
+    //    //{
+    //    //    if (id == null)
+    //    //        return NotFound();
 
-        //    Emps = await context.Emps
-        //        .Include(c => c.ContactInform)
-        //        .FirstOrDefaultAsync(m => m.id == id);
+    //    //    Emps = await context.Emps
+    //    //        .Include(c => c.ContactInform)
+    //    //        .FirstOrDefaultAsync(m => m.id == id);
 
-        //    if (Rent == null)
-        //        return NotFound();
+    //    //    if (Rent == null)
+    //    //        return NotFound();
 
-        //    ItemDropDownList(_db, Rent.ItemId);
-        //    CustomerDropDownList(_db, Rent.CustomerId);
+    //    //    ItemDropDownList(_db, Rent.ItemId);
+    //    //    CustomerDropDownList(_db, Rent.CustomerId);
 
-        //    return Page();
-        //}
+    //    //    return Page();
+    //    //}
 
-        public async Task<IActionResult> OnPostDeleteAsync(int id)
-        {
-            var user = await context.Emps.FindAsync(id);
+    //    public async Task<IActionResult> OnPostDeleteAsync(int id)
+    //    {
+    //        var user = await context.Emps.FindAsync(id);
 
-            if (user != null)
-            {   
-                context.Emps.Remove(user);
-                await context.SaveChangesAsync();
-            }
+    //        if (user != null)
+    //        {   
+    //            context.Emps.Remove(user);
+    //            await context.SaveChangesAsync();
+    //        }
 
-            return RedirectToPage();
-        }
+    //        return RedirectToPage();
+    //    }
     }
 }

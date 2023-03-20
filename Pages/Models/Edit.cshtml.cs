@@ -17,7 +17,7 @@ namespace BD9.Pages.Models
         }
         public async Task<IActionResult> OnGetAsync(int id)
         {
-            Mod = await context.Models.FindAsync(id);
+            //Mod = await context.Models.FindAsync(id);
 
             if (Mod == null) return NotFound();
 
@@ -25,7 +25,7 @@ namespace BD9.Pages.Models
         }
         public async Task<IActionResult> OnPostAsync()
         {
-            context.Models.Update(Mod!);
+            //context.Models.Update(Mod!);
             await context.SaveChangesAsync();
             return RedirectToPage("Index");
         }

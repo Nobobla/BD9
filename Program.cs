@@ -23,9 +23,9 @@ using (var scope = app.Services.CreateScope())
 
 
     var db = serviceProvider.GetRequiredService<ApplicationContext>();
-    await db.Database.EnsureDeletedAsync();
-    await db.Database.EnsureCreatedAsync();
-    await ApplicationContextSeed.InitializeDb(db);
-    // test
+    await db.Database.EnsureDeletedAsync();//обнуление бд
+    await db.Database.EnsureCreatedAsync();//создает базу данных
+    await ApplicationContextSeed.InitializeDb(db);//заполнение базы данных
+
 }
 app.Run();
